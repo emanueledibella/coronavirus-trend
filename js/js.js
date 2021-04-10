@@ -1,9 +1,5 @@
 country = 'IT';
 
-function formatNumber(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-}
-
 function request(country) {
     $.ajax({
         type: 'GET',
@@ -20,13 +16,13 @@ function request(country) {
             last_date = last_update[0];
             last_time = last_update[1].split('.')[0];
             // Today
-            $('#today-deaths').text(today.deaths);
-            $('#today-confirmed').text(today.confirmed);
+            $('#today-deaths').text(today.deaths.toLocaleString());
+            $('#today-confirmed').text(today.confirmed.toLocaleString());
             // Till now
-            $('#total-deaths').text(tillNow.deaths);
-            $('#total-confirmed').text(tillNow.confirmed);
-            $('#total-recovered').text(tillNow.recovered);
-            $('#total-critical').text(tillNow.critical);
+            $('#total-deaths').text(tillNow.deaths.toLocaleString());
+            $('#total-confirmed').text(tillNow.confirmed.toLocaleString());
+            $('#total-recovered').text(tillNow.recovered.toLocaleString());
+            $('#total-critical').text(tillNow.critical.toLocaleString());
             // Timeline
             time_dates = [];
             deaths = [];
